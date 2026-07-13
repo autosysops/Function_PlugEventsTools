@@ -1,0 +1,164 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">PlugEvents</S>
+      <S N="Version">0.0.7</S>
+      <S N="Type">Module</S>
+      <S N="Description">PowerShell module to interact with plug.events.</S>
+      <S N="Author">AutoSysOps (Leo Visser)</S>
+      <S N="CompanyName">AutoSysOps</S>
+      <S N="Copyright">(c) AutoSysOps (Leo Visser). All rights reserved.</S>
+      <DT N="PublishedDate">2026-07-07T13:44:24+02:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/autosysops/PowerShell_PlugEvents/blob/main/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/autosysops/PowerShell_PlugEvents</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>Plug</S>
+          <S>Events</S>
+          <S>Event</S>
+          <S>Agenda</S>
+          <S>Calendar</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Workflow</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Add-PlugEventsOrgMember</S>
+                <S>Connect-PlugEvents</S>
+                <S>Disconnect-PlugEvents</S>
+                <S>Get-PlugEventsCancellationToken</S>
+                <S>Get-PlugEventsConnection</S>
+                <S>Get-PlugEventsEndpoint</S>
+                <S>Get-PlugEventsEventView</S>
+                <S>Get-PlugEventsOrg</S>
+                <S>Get-PlugEventsOrgView</S>
+                <S>Get-PlugEventsUmbrellaEvent</S>
+                <S>Open-PlugEventsWebsocket</S>
+                <S>Receive-PlugEventsMessage</S>
+                <S>Send-PlugEventsMessage</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Add-PlugEventsOrgMember</S>
+                <S>Connect-PlugEvents</S>
+                <S>Disconnect-PlugEvents</S>
+                <S>Get-PlugEventsCancellationToken</S>
+                <S>Get-PlugEventsConnection</S>
+                <S>Get-PlugEventsEndpoint</S>
+                <S>Get-PlugEventsEventView</S>
+                <S>Get-PlugEventsOrg</S>
+                <S>Get-PlugEventsOrgView</S>
+                <S>Get-PlugEventsUmbrellaEvent</S>
+                <S>Open-PlugEventsWebsocket</S>
+                <S>Receive-PlugEventsMessage</S>
+                <S>Send-PlugEventsMessage</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <Nil N="ReleaseNotes" />
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST>
+          <Obj RefId="7">
+            <TN RefId="3">
+              <T>System.Collections.Specialized.OrderedDictionary</T>
+              <T>System.Object</T>
+            </TN>
+            <DCT>
+              <En>
+                <S N="Key">Name</S>
+                <S N="Value">TelemetryHelper</S>
+              </En>
+              <En>
+                <S N="Key">CanonicalId</S>
+                <S N="Value">nuget:TelemetryHelper</S>
+              </En>
+            </DCT>
+          </Obj>
+        </LST>
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="8">
+        <TN RefId="4">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) AutoSysOps (Leo Visser). All rights reserved.</S>
+          <S N="description">PowerShell module to interact with plug.events.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">7</S>
+          <S N="downloadCount">44</S>
+          <S N="packageSize">11247</S>
+          <S N="published">7-7-2026 13:44:24 +02:00</S>
+          <S N="created">7-7-2026 13:44:24 +02:00</S>
+          <S N="lastUpdated">12-7-2026 20:40:01 +02:00</S>
+          <S N="tags">Plug Events Event Agenda Calendar PSModule PSFunction_Add-PlugEventsOrgMember PSCommand_Add-PlugEventsOrgMember PSFunction_Connect-PlugEvents PSCommand_Connect-PlugEvents PSFunction_Disconnect-PlugEvents PSCommand_Disconnect-PlugEvents PSFunction_Get-PlugEventsCancellationToken PSCommand_Get-PlugEventsCancellationToken PSFunction_Get-PlugEventsConnection PSCommand_Get-PlugEventsConnection PSFunction_Get-PlugEventsEndpoint PSCommand_Get-PlugEventsEndpoint PSFunction_Get-PlugEventsEventView PSCommand_Get-PlugEventsEventView PSFunction_Get-PlugEventsOrg PSCommand_Get-PlugEventsOrg PSFunction_Get-PlugEventsOrgView PSCommand_Get-PlugEventsOrgView PSFunction_Get-PlugEventsUmbrellaEvent PSCommand_Get-PlugEventsUmbrellaEvent PSFunction_Open-PlugEventsWebsocket PSCommand_Open-PlugEventsWebsocket PSFunction_Receive-PlugEventsMessage PSCommand_Receive-PlugEventsMessage PSFunction_Send-PlugEventsMessage PSCommand_Send-PlugEventsMessage PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2026-07-12T20:40:01Z</S>
+          <S N="NormalizedVersion">0.0.7</S>
+          <S N="Authors">AutoSysOps (Leo Visser)</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">PlugEvents.nuspec|LICENSE|PlugEvents.psd1|PlugEvents.psm1</S>
+          <S N="GUID">635662ae-2aa1-4c06-b6fb-cfc5efc675f2</S>
+          <S N="CompanyName">AutoSysOps</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">C:\BalfolkWorkshop\Function_PlugEventsTools\Modules\PlugEvents\0.0.7</S>
+    </MS>
+  </Obj>
+</Objs>

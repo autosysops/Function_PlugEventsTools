@@ -1,0 +1,160 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">TelemetryHelper</S>
+      <S N="Version">2.3.1</S>
+      <S N="Type">Module</S>
+      <S N="Description">This module helps you integrate telemetry with ApplicationInsights into your own PowerShell module</S>
+      <S N="Author">Jan-Hendrik Peters</S>
+      <S N="CompanyName">jhp</S>
+      <S N="Copyright">Copyright (c) 2022 Jan-Hendrik Peters</S>
+      <DT N="PublishedDate">2025-08-15T15:56:18+02:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://codeberg.org/nyanhp/TelemetryHelper/src/branch/main/LICENSE</URI>
+      <URI N="ProjectUri">https://codeberg.org/nyanhp/TelemetryHelper</URI>
+      <URI N="IconUri">https://codeberg.org/nyanhp/TelemetryHelper/raw/branch/main/assets/logo_64.png</URI>
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>Telemetry</S>
+          <S>ApplicationInsights</S>
+          <S>PSModule</S>
+          <S>PSEdition_Core</S>
+          <S>PSEdition_Desktop</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Add-THAppInsightsConnectionString</S>
+                <S>Initialize-THTelemetry</S>
+                <S>Get-THTelemetryConfiguration</S>
+                <S>Send-THEvent</S>
+                <S>Send-THTrace</S>
+                <S>Send-THMetric</S>
+                <S>Send-THException</S>
+                <S>Send-THAvailability</S>
+                <S>Set-THTelemetryConfiguration</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Add-THAppInsightsConnectionString</S>
+                <S>Initialize-THTelemetry</S>
+                <S>Get-THTelemetryConfiguration</S>
+                <S>Send-THEvent</S>
+                <S>Send-THTrace</S>
+                <S>Send-THMetric</S>
+                <S>Send-THException</S>
+                <S>Send-THAvailability</S>
+                <S>Set-THTelemetryConfiguration</S>
+              </LST>
+            </Obj>
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <Nil N="ReleaseNotes" />
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST>
+          <Obj RefId="7">
+            <TN RefId="3">
+              <T>System.Collections.Specialized.OrderedDictionary</T>
+              <T>System.Object</T>
+            </TN>
+            <DCT>
+              <En>
+                <S N="Key">Name</S>
+                <S N="Value">PSFramework</S>
+              </En>
+              <En>
+                <S N="Key">MinimumVersion</S>
+                <S N="Value">1.12.346</S>
+              </En>
+              <En>
+                <S N="Key">CanonicalId</S>
+                <S N="Value">nuget:PSFramework/1.12.346</S>
+              </En>
+            </DCT>
+          </Obj>
+        </LST>
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="8">
+        <TN RefId="4">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">Copyright (c) 2022 Jan-Hendrik Peters</S>
+          <S N="description">This module helps you integrate telemetry with ApplicationInsights into your own PowerShell module</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">1273</S>
+          <S N="downloadCount">24787</S>
+          <S N="packageSize">376503</S>
+          <S N="published">15-8-2025 15:56:18 +02:00</S>
+          <S N="created">15-8-2025 15:56:18 +02:00</S>
+          <S N="lastUpdated">29-1-2026 00:30:00 +01:00</S>
+          <S N="tags">Telemetry ApplicationInsights PSModule PSEdition_Core PSEdition_Desktop PSFunction_Add-THAppInsightsConnectionString PSCommand_Add-THAppInsightsConnectionString PSFunction_Initialize-THTelemetry PSCommand_Initialize-THTelemetry PSFunction_Get-THTelemetryConfiguration PSCommand_Get-THTelemetryConfiguration PSFunction_Send-THEvent PSCommand_Send-THEvent PSFunction_Send-THTrace PSCommand_Send-THTrace PSFunction_Send-THMetric PSCommand_Send-THMetric PSFunction_Send-THException PSCommand_Send-THException PSFunction_Send-THAvailability PSCommand_Send-THAvailability PSFunction_Set-THTelemetryConfiguration PSCommand_Set-THTelemetryConfiguration PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2026-01-29T00:30:00Z</S>
+          <S N="NormalizedVersion">2.3.1</S>
+          <S N="Authors">Jan-Hendrik Peters</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">TelemetryHelper.nuspec|TelemetryHelper.psd1|changelog.md|xml\TelemetryHelper.Format.ps1xml|tests\readme.md|functions\Set-THTelemetryConfiguration.ps1|functions\Send-THMetric.ps1|functions\Send-THEvent.ps1|functions\readme.md|functions\Get-THTelemetryConfiguration.ps1|en-us\strings.psd1|tests\general\strings.Tests.ps1|tests\general\PSScriptAnalyzer.Tests.ps1|tests\general\Help.Tests.ps1|tests\general\FileIntegrity.Tests.ps1|tests\functions\Set-THTelemetryConfiguration.tests.ps1|tests\functions\Send-THMetric.tests.ps1|TelemetryHelper.psm1|readme.md|xml\TelemetryHelper.Types.ps1xml|xml\readme.md|tests\pester.ps1|functions\Send-THTrace.ps1|functions\Send-THException.ps1|functions\Send-THAvailability.ps1|functions\Initialize-THTelemetry.ps1|functions\Add-THAppInsightsConnectionString.ps1|en-us\about_TelemetryHelper.help.txt|tests\general\strings.Exceptions.ps1|tests\general\Manifest.Tests.ps1|tests\general\Help.Exceptions.ps1|tests\general\FileIntegrity.Exceptions.ps1|tests\functions\Send-THTrace.tests.ps1|tests\functions\Send-THException.tests.ps1|tests\functions\Send-THEvent.tests.ps1|tests\functions\readme.md|tests\functions\Add-THAppInsightsConnectionString.tests.ps1|internal\tepp\example.tepp.ps1|internal\scripts\strings.ps1|internal\scripts\postimport.ps1|internal\scripts\license.ps1|internal\functions\readme.md|internal\configurations\readme.md|bin\netstandard2.0\TelemetryHelper.pdb|bin\netstandard2.0\TelemetryHelper.deps.json|bin\netstandard2.0\System.Numerics.Vectors.dll|bin\netstandard2.0\System.Diagnostics.DiagnosticSource.dll|bin\netstandard2.0\System.Buffers.dll|bin\netstandard2.0\Microsoft.ApplicationInsights.dll|internal\tepp\readme.md|internal\tepp\assignment.ps1|internal\scripts\preimport.ps1|internal\scripts\loadLibs.ps1|internal\scriptblocks\scriptblocks.ps1|internal\functions\Get-CallingModule.ps1|internal\configurations\configuration.ps1|bin\netstandard2.0\TelemetryHelper.dll|bin\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll|bin\netstandard2.0\System.Memory.dll|tests\functions\Initialize-THTelemetry.tests.ps1|tests\functions\Get-THTelemetryConfiguration.tests.ps1</S>
+          <S N="GUID">b4ebcde7-2c74-4d86-b43a-8736ae2617f1</S>
+          <S N="PowerShellVersion">5.1</S>
+          <S N="CompanyName">Jan-Hendrik Peters</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">C:\BalfolkWorkshop\AgendaExportBackEnd\Modules\TelemetryHelper\2.3.1</S>
+    </MS>
+  </Obj>
+</Objs>

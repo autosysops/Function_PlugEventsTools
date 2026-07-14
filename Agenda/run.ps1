@@ -150,23 +150,15 @@ foreach ($occ in $sorted) {
     $d = Get-PlugEventsEventView -Id $occ.Slug
 
     $city   = $d.venueLocale.name6
-    $evtLat = $d.venueLocale.minlat
-    $evtLon = $d.venueLocale.minlon
+    $evtLat = [double]$d.eventScalar.venueLat
+    $evtLon = [double]$d.eventScalar.venueLon
 
-    # Price — try ticketTypes first, fall back to top-level price fields
+    # Price — eventScalar.priceLow2 is in cents (e.g. 500 = €5.00)
     $priceDisplay = '—'
-    if ($d.ticketTypes -and $d.ticketTypes.Count -gt 0) {
-        $prices = @($d.ticketTypes |
-            Where-Object { $null -ne $_.price } |
-            Select-Object -ExpandProperty price)
-        if ($prices.Count -gt 0) {
-            $minPrice     = ($prices | Measure-Object -Minimum).Minimum
-            $priceDisplay = ([double]$minPrice).ToString('€0.00')
-        }
-    } elseif ($null -ne $d.minPrice) {
-        $priceDisplay = ([double]$d.minPrice).ToString('€0.00')
-    } elseif ($null -ne $d.price) {
-        $priceDisplay = ([double]$d.price).ToString('€0.00')
+    $priceLow = $d.eventScalar.priceLow2
+    if ($priceLow -and [int]$priceLow -gt 0 -and $d.eventScalar.isPriceVisible) {
+        $eur          = [math]::Round([int]$priceLow / 100, 2)
+        $priceDisplay = "€$($eur.ToString('0.00', [System.Globalization.CultureInfo]::InvariantCulture))"
     }
 
     $dateStr  = Format-DutchDate $occ.StartTime
@@ -181,10 +173,10 @@ foreach ($occ in $sorted) {
             $dist = Find-GeoCodeDistance `
                 -OriginLatitude       $lat `
                 -OriginLongitude      $lon `
-                -DestinationLatitude  ([double]$evtLat) `
-                -DestinationLongitude ([double]$evtLon) `
+                -DestinationLatitude  $evtLat `
+                -DestinationLongitude $evtLon `
                 -Provider             OSM
-            $km     = [math]::Round($dist.Distance.Kilometers, 0)
+            $km     = [math]::Round($dist.Distance.Meters / 1000, 0)
             $distTd = "        <td>$km km</td>`n"
         } catch {
             $distTd = "        <td>—</td>`n"

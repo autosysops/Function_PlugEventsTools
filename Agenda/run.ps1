@@ -18,17 +18,17 @@ try {
 # ---------------------------------------------------------------------------
 # Parameters
 # ---------------------------------------------------------------------------
-$email     = $body.Email
+$rowKey    = $body.RowKey
 $removeKey = $body.RemoveKey
 $umbrella  = $body.Umbrella
 $weeksRaw  = $body.Weeks
 $latRaw    = $body.Lat
 $lonRaw    = $body.Lon
 
-if (-not $email -or -not $removeKey -or -not $umbrella -or -not $weeksRaw) {
+if (-not $rowKey -or -not $removeKey -or -not $umbrella -or -not $weeksRaw) {
     Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
         StatusCode = [HttpStatusCode]::BadRequest
-        Body       = 'Missing required parameter(s): Email, RemoveKey, Umbrella, Weeks.'
+        Body       = 'Missing required parameter(s): RowKey, RemoveKey, Umbrella, Weeks.'
     })
     return
 }
@@ -214,9 +214,9 @@ if ($markerList.Count -gt 0 -and $geoapifyKey) {
 # ---------------------------------------------------------------------------
 # Unsubscribe link — base64url (RFC 4648 §5) encoded email
 # ---------------------------------------------------------------------------
-$emailB64 = ([Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($email))) `
-              -replace '\+', '-' -replace '/', '_' -replace '=', ''
-$unsubUrl = "https://plugeventstools.balfolkworkshop.com/pages/unsubscribe.html?id=$emailB64&RemoveKey=$removeKey"
+$rowKeyB64 = ([Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($rowKey))) `
+               -replace '\+', '-' -replace '/', '_' -replace '=', ''
+$unsubUrl = "https://plugeventstools.balfolkworkshop.com/pages/unsubscribe.html?id=$rowKeyB64&RemoveKey=$removeKey"
 
 # ---------------------------------------------------------------------------
 # Compose HTML body

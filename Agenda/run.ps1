@@ -209,10 +209,21 @@ $cacheFile = "/tmp/$umbrella-w$weeks.png"
 if ($markerList.Count -gt 0) {
     $imgBytes = $null
 
+    $cacheHit = $false
     if (Test-Path $cacheFile) {
-        Write-Host "Map cache HIT: $cacheFile"
-        $imgBytes = [System.IO.File]::ReadAllBytes($cacheFile)
-    } elseif ($geoapifyKey) {
+        $ageMinutes  = ((Get-Date) - (Get-Item $cacheFile).LastWriteTime).TotalMinutes
+        $ageDisplay  = "$([math]::Floor($ageMinutes / 60)):$([math]::Floor($ageMinutes % 60).ToString('00'))"
+        if ($ageMinutes -lt 5) {
+            $cacheHit = $true
+            Write-Host "Map cache HIT: $cacheFile (age: $ageDisplay)"
+            $imgBytes = [System.IO.File]::ReadAllBytes($cacheFile)
+        } else {
+            Write-Host "Map cache EXPIRED: $cacheFile (age: $ageDisplay) — deleting"
+            Remove-Item $cacheFile -Force -ErrorAction SilentlyContinue
+        }
+    }
+
+    if (-not $cacheHit -and $geoapifyKey) {
         Write-Host "Map cache MISS: generating map and storing to $cacheFile"
         $markerStr = $markerList -join '|'
         $mapUrl    = "https://maps.geoapify.com/v1/staticmap?style=osm-bright" +

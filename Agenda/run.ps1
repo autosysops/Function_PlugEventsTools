@@ -4,13 +4,27 @@ param($Request, $TriggerMetadata)
 
 # ---------------------------------------------------------------------------
 # Parse POST JSON body
+# The Azure Functions runtime may deliver the body as an already-parsed object
+# (when Content-Type: application/json) or as a raw string.
 # ---------------------------------------------------------------------------
 try {
-    $body = $Request.Body | ConvertFrom-Json -ErrorAction Stop
+    $body = if ($Request.Body -is [string]) {
+        $Request.Body | ConvertFrom-Json -ErrorAction Stop
+    } else {
+        $Request.Body
+    }
 } catch {
     Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
         StatusCode = [HttpStatusCode]::BadRequest
         Body       = 'Request body must be valid JSON.'
+    })
+    return
+}
+
+if (-not $body) {
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+        StatusCode = [HttpStatusCode]::BadRequest
+        Body       = 'Request body is empty.'
     })
     return
 }

@@ -200,20 +200,36 @@ $($distTd)      </tr>
 Disconnect-PlugEvents
 
 # ---------------------------------------------------------------------------
-# Geoapify static map — embedded as base64 so the email has no external links
+# Geoapify static map — cached in /MapCache by umbrella+weeks, embedded as
+# base64 so the email contains no external image references
 # ---------------------------------------------------------------------------
-$mapHtml = '<p><em>Geen kaart beschikbaar.</em></p>'
-if ($markerList.Count -gt 0 -and $geoapifyKey) {
-    $markerStr = $markerList -join '|'
-    $mapUrl    = "https://maps.geoapify.com/v1/staticmap?style=osm-bright" +
-                 "&width=750&height=900&center=lonlat:5.289222,52.160197&zoom=7.049" +
-                 "&marker=$markerStr&apiKey=$geoapifyKey"
-    try {
-        $imgBytes = (Invoke-WebRequest -Uri $mapUrl -UseBasicParsing).Content
-        $b64      = [Convert]::ToBase64String($imgBytes)
-        $mapHtml  = "<img src=`"data:image/png;base64,$b64`" alt=`"Kaart met evenementen`" style=`"max-width:100%;height:auto;display:block;`" />"
-    } catch {
-        Write-Warning "Failed to generate map: $_"
+$mapHtml   = '<p><em>Geen kaart beschikbaar.</em></p>'
+$cacheFile = "/MapCache/$umbrella-w$weeks.png"
+
+if ($markerList.Count -gt 0) {
+    $imgBytes = $null
+
+    if (Test-Path $cacheFile) {
+        Write-Host "Map cache HIT: $cacheFile"
+        $imgBytes = [System.IO.File]::ReadAllBytes($cacheFile)
+    } elseif ($geoapifyKey) {
+        Write-Host "Map cache MISS: generating map and storing to $cacheFile"
+        $markerStr = $markerList -join '|'
+        $mapUrl    = "https://maps.geoapify.com/v1/staticmap?style=osm-bright" +
+                     "&width=750&height=900&center=lonlat:5.289222,52.160197&zoom=7.049" +
+                     "&marker=$markerStr&apiKey=$geoapifyKey"
+        try {
+            $imgBytes = (Invoke-WebRequest -Uri $mapUrl -UseBasicParsing).Content
+            [System.IO.File]::WriteAllBytes($cacheFile, $imgBytes)
+            Write-Host "Map stored: $cacheFile ($($imgBytes.Length) bytes)"
+        } catch {
+            Write-Warning "Failed to generate map: $_"
+        }
+    }
+
+    if ($imgBytes) {
+        $b64     = [Convert]::ToBase64String($imgBytes)
+        $mapHtml = "<img src=`"data:image/png;base64,$b64`" alt=`"Kaart met evenementen`" style=`"max-width:100%;height:auto;display:block;`" />"
     }
 }
 

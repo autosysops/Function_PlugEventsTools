@@ -203,15 +203,17 @@ Disconnect-PlugEvents
 # Geoapify static map — cached in /MapCache by umbrella+weeks, embedded as
 # base64 so the email contains no external image references
 # ---------------------------------------------------------------------------
-$mapHtml   = '<p><em>Geen kaart beschikbaar.</em></p>'
-$cacheFile = "/tmp/$umbrella-w$weeks.png"
+$mapHtml    = '<p><em>Geen kaart beschikbaar.</em></p>'
+$cacheFile  = "/MapCache/$umbrella-w$weeks.png"
+$cacheStamp = "/MapCache/$umbrella-w$weeks.ts"
 
 if ($markerList.Count -gt 0) {
     $imgBytes = $null
 
     $cacheHit = $false
-    if (Test-Path $cacheFile) {
-        $ageMinutes  = ((Get-Date) - (Get-Item $cacheFile).LastWriteTime).TotalMinutes
+    if ((Test-Path $cacheFile) -and (Test-Path $cacheStamp)) {
+        $writeTime   = [DateTime]::Parse([System.IO.File]::ReadAllText($cacheStamp))
+        $ageMinutes  = ((Get-Date).ToUniversalTime() - $writeTime.ToUniversalTime()).TotalMinutes
         $ageDisplay  = "$([math]::Floor($ageMinutes / 60)):$([math]::Floor($ageMinutes % 60).ToString('00'))"
         if ($ageMinutes -lt 5) {
             $cacheHit = $true
@@ -219,7 +221,8 @@ if ($markerList.Count -gt 0) {
             $imgBytes = [System.IO.File]::ReadAllBytes($cacheFile)
         } else {
             Write-Host "Map cache EXPIRED: $cacheFile (age: $ageDisplay) — deleting"
-            Remove-Item $cacheFile -Force -ErrorAction SilentlyContinue
+            Remove-Item $cacheFile  -Force -ErrorAction SilentlyContinue
+            Remove-Item $cacheStamp -Force -ErrorAction SilentlyContinue
         }
     }
 
@@ -238,6 +241,7 @@ if ($markerList.Count -gt 0) {
         if ($imgBytes) {
             try {
                 [System.IO.File]::WriteAllBytes($cacheFile, $imgBytes)
+                [System.IO.File]::WriteAllText($cacheStamp, (Get-Date).ToUniversalTime().ToString('o'))
                 Write-Host "Map cached: $cacheFile"
             } catch {
                 Write-Warning "Failed to write map cache (continuing without cache): $_"

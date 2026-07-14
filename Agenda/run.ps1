@@ -215,7 +215,7 @@ if ($markerList.Count -gt 0) {
         $writeTime   = [DateTime]::Parse([System.IO.File]::ReadAllText($cacheStamp))
         $ageMinutes  = ((Get-Date).ToUniversalTime() - $writeTime.ToUniversalTime()).TotalMinutes
         $ageDisplay  = "$([math]::Floor($ageMinutes / 60)):$([math]::Floor($ageMinutes % 60).ToString('00'))"
-        if ($ageMinutes -lt 5) {
+        if ($ageMinutes -lt 60) {
             $cacheHit = $true
             Write-Host "Map cache HIT: $cacheFile (age: $ageDisplay)"
             $imgBytes = [System.IO.File]::ReadAllBytes($cacheFile)

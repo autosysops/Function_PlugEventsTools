@@ -252,7 +252,7 @@ if ($markerList.Count -gt 0) {
 
     if ($imgBytes) {
         $mapBase64 = [Convert]::ToBase64String($imgBytes)
-        $mapHtml   = '<img src="cid:mapimage" alt="Kaart met evenementen" style="max-width:100%;height:auto;display:block;" />'
+        $mapHtml   = '<img src="cid:mapimage" alt="Kaart met evenementen" style="width:400px;max-width:100%;height:auto;display:block;" />'
     }
 }
 

@@ -204,7 +204,7 @@ Disconnect-PlugEvents
 # base64 so the email contains no external image references
 # ---------------------------------------------------------------------------
 $mapHtml   = '<p><em>Geen kaart beschikbaar.</em></p>'
-$cacheFile = "/MapCache/$umbrella-w$weeks.png"
+$cacheFile = "/tmp/$umbrella-w$weeks.png"
 
 if ($markerList.Count -gt 0) {
     $imgBytes = $null
@@ -220,10 +220,17 @@ if ($markerList.Count -gt 0) {
                      "&marker=$markerStr&apiKey=$geoapifyKey"
         try {
             $imgBytes = (Invoke-WebRequest -Uri $mapUrl -UseBasicParsing).Content
-            [System.IO.File]::WriteAllBytes($cacheFile, $imgBytes)
-            Write-Host "Map stored: $cacheFile ($($imgBytes.Length) bytes)"
+            Write-Host "Map downloaded: $($imgBytes.Length) bytes"
         } catch {
-            Write-Warning "Failed to generate map: $_"
+            Write-Warning "Failed to download map from Geoapify: $_"
+        }
+        if ($imgBytes) {
+            try {
+                [System.IO.File]::WriteAllBytes($cacheFile, $imgBytes)
+                Write-Host "Map cached: $cacheFile"
+            } catch {
+                Write-Warning "Failed to write map cache (continuing without cache): $_"
+            }
         }
     }
 

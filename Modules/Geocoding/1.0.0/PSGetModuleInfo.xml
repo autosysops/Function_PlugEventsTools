@@ -1,0 +1,154 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">Geocoding</S>
+      <S N="Version">1.0.0</S>
+      <S N="Type">Module</S>
+      <S N="Description">PowerShell module to search and reverse geocode location data and calculate route distances. The module supports Open Street Maps, Azure Maps and Google Maps. You can use Open Street Maps without an API key, to use either Azure or Google you do need to request an API key.</S>
+      <S N="Author">AutoSysOps (Leo Visser)</S>
+      <S N="CompanyName">AutoSysOps</S>
+      <S N="Copyright">(c) AutoSysOps (Leo Visser). All rights reserved.</S>
+      <DT N="PublishedDate">2026-07-09T15:53:45+02:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/autosysops/PowerShell_Geocoding/blob/main/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/autosysops/PowerShell_Geocoding</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>Maps</S>
+          <S>Azure</S>
+          <S>AzureMaps</S>
+          <S>Google</S>
+          <S>Microsoft</S>
+          <S>OSM</S>
+          <S>OpenStreetMaps</S>
+          <S>GoogleMaps</S>
+          <S>Geocode</S>
+          <S>Location</S>
+          <S>Distance</S>
+          <S>Route</S>
+          <S>PSEdition_Desktop</S>
+          <S>PSEdition_Core</S>
+          <S>Windows</S>
+          <S>MacOS</S>
+          <S>Linux</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Find-GeoCodeLocation</S>
+                <S>Find-GeoCodeDistance</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Find-GeoCodeLocation</S>
+                <S>Find-GeoCodeDistance</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <Nil N="ReleaseNotes" />
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST>
+          <Obj RefId="7">
+            <TN RefId="3">
+              <T>System.Collections.Specialized.OrderedDictionary</T>
+              <T>System.Object</T>
+            </TN>
+            <DCT>
+              <En>
+                <S N="Key">Name</S>
+                <S N="Value">TelemetryHelper</S>
+              </En>
+              <En>
+                <S N="Key">CanonicalId</S>
+                <S N="Value">nuget:TelemetryHelper</S>
+              </En>
+            </DCT>
+          </Obj>
+        </LST>
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="8">
+        <TN RefId="4">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) AutoSysOps (Leo Visser). All rights reserved.</S>
+          <S N="description">PowerShell module to search and reverse geocode location data and calculate route distances. The module supports Open Street Maps, Azure Maps and Google Maps. You can use Open Street Maps without an API key, to use either Azure or Google you do need to request an API key.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">16</S>
+          <S N="downloadCount">314</S>
+          <S N="packageSize">13275</S>
+          <S N="published">9-7-2026 15:53:45 +02:00</S>
+          <S N="created">9-7-2026 15:53:45 +02:00</S>
+          <S N="lastUpdated">14-7-2026 13:00:20 +02:00</S>
+          <S N="tags">Maps Azure AzureMaps Google Microsoft OSM OpenStreetMaps GoogleMaps Geocode Location Distance Route PSEdition_Desktop PSEdition_Core Windows MacOS Linux PSModule PSFunction_Find-GeoCodeLocation PSCommand_Find-GeoCodeLocation PSFunction_Find-GeoCodeDistance PSCommand_Find-GeoCodeDistance PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2026-07-14T13:00:20Z</S>
+          <S N="NormalizedVersion">1.0.0</S>
+          <S N="Authors">AutoSysOps (Leo Visser)</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">Geocoding.nuspec|Geocoding.psd1|Geocoding.psm1|LICENSE</S>
+          <S N="GUID">2aa8a79e-ca7c-4e1a-8022-2a72b664d608</S>
+          <S N="CompanyName">AutoSysOps</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">C:\BalfolkWorkshop\Function_PlugEventsTools\Modules\Geocoding\1.0.0</S>
+    </MS>
+  </Obj>
+</Objs>

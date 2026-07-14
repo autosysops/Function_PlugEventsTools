@@ -44,10 +44,22 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">Workflow</S>
+            <S N="Key">Cmdlet</S>
             <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
-              <LST />
+              <LST>
+                <S>Assert-PSFInternalCommand</S>
+                <S>ConvertTo-PSFHashtable</S>
+                <S>Invoke-PSFCallback</S>
+                <S>Invoke-PSFProtectedCommand</S>
+                <S>Remove-PSFNull</S>
+                <S>Select-PSFObject</S>
+                <S>Set-PSFConfig</S>
+                <S>Set-PSFObjectOrder</S>
+                <S>Test-PSFShouldProcess</S>
+                <S>Update-PSFTeppCompletion</S>
+                <S>Write-PSFMessage</S>
+              </LST>
             </Obj>
           </En>
           <En>
@@ -205,10 +217,6 @@
                 <S>Write-PSFRunspaceQueue</S>
               </LST>
             </Obj>
-          </En>
-          <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
           </En>
           <En>
             <S N="Key">Command</S>
@@ -379,26 +387,18 @@
           </En>
           <En>
             <S N="Key">RoleCapability</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Cmdlet</S>
             <Obj N="Value" RefId="6">
               <TNRef RefId="1" />
-              <LST>
-                <S>Assert-PSFInternalCommand</S>
-                <S>ConvertTo-PSFHashtable</S>
-                <S>Invoke-PSFCallback</S>
-                <S>Invoke-PSFProtectedCommand</S>
-                <S>Remove-PSFNull</S>
-                <S>Select-PSFObject</S>
-                <S>Set-PSFConfig</S>
-                <S>Set-PSFObjectOrder</S>
-                <S>Test-PSFShouldProcess</S>
-                <S>Update-PSFTeppCompletion</S>
-                <S>Write-PSFMessage</S>
-              </LST>
+              <LST />
             </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="6" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="6" />
           </En>
         </DCT>
       </Obj>
@@ -423,15 +423,15 @@
           <S N="releaseNotes">https://github.com/PowershellFrameworkCollective/psframework/blob/master/PSFramework/changelog.md</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">34334</S>
+          <S N="versionDownloadCount">39085</S>
           <S N="downloadCount">10864660</S>
           <S N="packageSize">1132896</S>
           <S N="published">2-7-2026 09:12:15 +02:00</S>
           <S N="created">2-7-2026 09:12:15 +02:00</S>
-          <S N="lastUpdated">13-7-2026 01:20:01 +02:00</S>
+          <S N="lastUpdated">14-7-2026 13:00:20 +02:00</S>
           <S N="tags">scripting infrastructure logging configuration PSEdition_Core PSEdition_Desktop Linux Mac PSModule PSCmdlet_Assert-PSFInternalCommand PSCommand_Assert-PSFInternalCommand PSCmdlet_ConvertTo-PSFHashtable PSCommand_ConvertTo-PSFHashtable PSCmdlet_Invoke-PSFCallback PSCommand_Invoke-PSFCallback PSCmdlet_Invoke-PSFProtectedCommand PSCommand_Invoke-PSFProtectedCommand PSCmdlet_Remove-PSFNull PSCommand_Remove-PSFNull PSCmdlet_Select-PSFObject PSCommand_Select-PSFObject PSCmdlet_Set-PSFConfig PSCommand_Set-PSFConfig PSCmdlet_Set-PSFObjectOrder PSCommand_Set-PSFObjectOrder PSCmdlet_Test-PSFShouldProcess PSCommand_Test-PSFShouldProcess PSCmdlet_Update-PSFTeppCompletion PSCommand_Update-PSFTeppCompletion PSCmdlet_Write-PSFMessage PSCommand_Write-PSFMessage PSIncludes_Cmdlet PSFunction_Add-PSFFilterCondition PSCommand_Add-PSFFilterCondition PSFunction_Add-PSFLoggingProviderRunspace PSCommand_Add-PSFLoggingProviderRunspace PSFunction_Add-PSFRunspaceWorker PSCommand_Add-PSFRunspaceWorker PSFunction_Add-PSFTeppCompletion PSCommand_Add-PSFTeppCompletion PSFunction_Clear-PSFMessage PSCommand_Clear-PSFMessage PSFunction_Clear-PSFresultCache PSCommand_Clear-PSFresultCache PSFunction_Compare-PSFArray PSCommand_Compare-PSFArray PSFunction_ConvertFrom-PSFArray PSCommand_ConvertFrom-PSFArray PSFunction_ConvertFrom-PSFClixml PSCommand_ConvertFrom-PSFClixml PSFunction_ConvertTo-PSFClixml PSCommand_ConvertTo-PSFClixml PSFunction_ConvertTo-PSFPsd1 PSCommand_ConvertTo-PSFPsd1 PSFunction_Disable-PSFConsoleInterrupt PSCommand_Disable-PSFConsoleInterrupt PSFunction_Disable-PSFLoggingProvider PSCommand_Disable-PSFLoggingProvider PSFunction_Disable-PSFTaskEngineTask PSCommand_Disable-PSFTaskEngineTask PSFunction_Enable-PSFConsoleInterrupt PSCommand_Enable-PSFConsoleInterrupt PSFunction_Enable-PSFTaskEngineTask PSCommand_Enable-PSFTaskEngineTask PSFunction_Export-PSFClixml PSCommand_Export-PSFClixml PSFunction_Export-PSFConfig PSCommand_Export-PSFConfig PSFunction_Export-PSFJson PSCommand_Export-PSFJson PSFunction_Export-PSFModuleClass PSCommand_Export-PSFModuleClass PSFunction_Export-PSFPowerShellDataFile PSCommand_Export-PSFPowerShellDataFile PSFunction_Get-PSFCallback PSCommand_Get-PSFCallback PSFunction_Get-PSFConfig PSCommand_Get-PSFConfig PSFunction_Get-PSFConfigValue PSCommand_Get-PSFConfigValue PSFunction_Get-PSFDynamicContentObject PSCommand_Get-PSFDynamicContentObject PSFunction_Get-PSFFeature PSCommand_Get-PSFFeature PSFunction_Get-PSFFileContent PSCommand_Get-PSFFileContent PSFunction_Get-PSFFilterCondition PSCommand_Get-PSFFilterCondition PSFunction_Get-PSFFilterConditionSet PSCommand_Get-PSFFilterConditionSet PSFunction_Get-PSFLicense PSCommand_Get-PSFLicense PSFunction_Get-PSFLocalizedString PSCommand_Get-PSFLocalizedString PSFunction_Get-PSFLoggingError PSCommand_Get-PSFLoggingError PSFunction_Get-PSFLoggingProvider PSCommand_Get-PSFLoggingProvider PSFunction_Get-PSFLoggingProviderInstance PSCommand_Get-PSFLoggingProviderInstance PSFunction_Get-PSFMessage PSCommand_Get-PSFMessage PSFunction_Get-PSFMessageColorTransform PSCommand_Get-PSFMessageColorTransform PSFunction_Get-PSFMessageLevelModifier PSCommand_Get-PSFMessageLevelModifier PSFunction_Get-PSFPath PSCommand_Get-PSFPath PSFunction_Get-PSFPipeline PSCommand_Get-PSFPipeline PSFunction_Get-PSFResultCache PSCommand_Get-PSFResultCache PSFunction_Get-PSFRunspace PSCommand_Get-PSFRunspace PSFunction_Get-PSFRunspaceLock PSCommand_Get-PSFRunspaceLock PSFunction_Get-PSFRunspaceWorkflow PSCommand_Get-PSFRunspaceWorkflow PSFunction_Get-PSFRunspaceWorker PSCommand_Get-PSFRunspaceWorker PSFunction_Get-PSFScriptblock PSCommand_Get-PSFScriptblock PSFunction_Get-PSFTaskEngineCache PSCommand_Get-PSFTaskEngineCache PSFunction_Get-PSFTaskEngineTask PSCommand_Get-PSFTaskEngineTask PSFunction_Get-PSFTempItem PSCommand_Get-PSFTempItem PSFunction_Get-PSFTeppCompletion PSCommand_Get-PSFTeppCompletion PSFunction_Get-PSFTypeSerializationData PSCommand_Get-PSFTypeSerializationData PSFunction_Get-PSFUserChoice PSCommand_Get-PSFUserChoice PSFunction_Import-PSFClixml PSCommand_Import-PSFClixml PSFunction_Import-PSFCmdlet PSCommand_Import-PSFCmdlet PSFunction_Import-PSFConfig PSCommand_Import-PSFConfig PSFunction_Import-PSFJson PSCommand_Import-PSFJson PSFunction_Import-PSFLocalizedString PSCommand_Import-PSFLocalizedString PSFunction_Import-PSFLoggingProvider PSCommand_Import-PSFLoggingProvider PSFunction_Import-PSFPowerShellDataFile PSCommand_Import-PSFPowerShellDataFile PSFunction_Install-PSFLoggingProvider PSCommand_Install-PSFLoggingProvider PSFunction_Invoke-PSFCommand PSCommand_Invoke-PSFCommand PSFunction_Invoke-PSFFilter PSCommand_Invoke-PSFFilter PSFunction_Invoke-PSFRunspace PSCommand_Invoke-PSFRunspace PSFunction_Join-PSFPath PSCommand_Join-PSFPath PSFunction_New-PSFCache PSCommand_New-PSFCache PSFunction_New-PSFFilter PSCommand_New-PSFFilter PSFunction_New-PSFFilterCondition PSCommand_New-PSFFilterCondition PSFunction_New-PSFFilterConditionSet PSCommand_New-PSFFilterConditionSet PSFunction_New-PSFHashtable PSCommand_New-PSFHashtable PSFunction_New-PSFLicense PSCommand_New-PSFLicense PSFunction_New-PSFMessageLevelModifier PSCommand_New-PSFMessageLevelModifier PSFunction_New-PSFRunspaceWorkflow PSCommand_New-PSFRunspaceWorkflow PSFunction_New-PSFSessionContainer PSCommand_New-PSFSessionContainer PSFunction_New-PSFSupportPackage PSCommand_New-PSFSupportPackage PSFunction_New-PSFTempDirectory PSCommand_New-PSFTempDirectory PSFunction_New-PSFTempFile PSCommand_New-PSFTempFile PSFunction_New-PSFTempItem PSCommand_New-PSFTempItem PSFunction_New-PSFTeppCompletionResult PSCommand_New-PSFTeppCompletionResult PSFunction_New-PSFThrottle PSCommand_New-PSFThrottle PSFunction_Read-PSFRunspaceQueue PSCommand_Read-PSFRunspaceQueue PSFunction_Register-PSFArgumentTransformationScriptblock PSCommand_Register-PSFArgumentTransformationScriptblock PSFunction_Register-PSFCallback PSCommand_Register-PSFCallback PSFunction_Register-PSFConfig PSCommand_Register-PSFConfig PSFunction_Register-PSFConfigSchema PSCommand_Register-PSFConfigSchema PSFunction_Register-PSFConfigValidation PSCommand_Register-PSFConfigValidation PSFunction_Register-PSFFeature PSCommand_Register-PSFFeature PSFunction_Register-PSFLoggingProvider PSCommand_Register-PSFLoggingProvider PSFunction_Register-PSFMessageColorTransform PSCommand_Register-PSFMessageColorTransform PSFunction_Register-PSFMessageEvent PSCommand_Register-PSFMessageEvent PSFunction_Register-PSFMessageTransform PSCommand_Register-PSFMessageTransform PSFunction_Register-PSFParameterClassMapping PSCommand_Register-PSFParameterClassMapping PSFunction_Register-PSFPsd1Converter PSCommand_Register-PSFPsd1Converter PSFunction_Register-PSFRunspace PSCommand_Register-PSFRunspace PSFunction_Register-PSFSessionObjectType PSCommand_Register-PSFSessionObjectType PSFunction_Register-PSFSupportDataProvider PSCommand_Register-PSFSupportDataProvider PSFunction_Register-PSFTaskEngineTask PSCommand_Register-PSFTaskEngineTask PSFunction_Register-PSFTempProvider PSCommand_Register-PSFTempProvider PSFunction_Register-PSFTeppArgumentCompleter PSCommand_Register-PSFTeppArgumentCompleter PSFunction_Register-PSFTeppScriptblock PSCommand_Register-PSFTeppScriptblock PSFunction_Register-PSFTypeAssemblyMapping PSCommand_Register-PSFTypeAssemblyMapping PSFunction_Register-PSFTypeSerializationData PSCommand_Register-PSFTypeSerializationData PSFunction_Remove-PSFAlias PSCommand_Remove-PSFAlias PSFunction_Remove-PSFConfig PSCommand_Remove-PSFConfig PSFunction_Remove-PSFLicense PSCommand_Remove-PSFLicense PSFunction_Remove-PSFLoggingProviderRunspace PSCommand_Remove-PSFLoggingProviderRunspace PSFunction_Remove-PSFMessageLevelModifier PSCommand_Remove-PSFMessageLevelModifier PSFunction_Remove-PSFRunspaceWorkflow PSCommand_Remove-PSFRunspaceWorkflow PSFunction_Remove-PSFTempItem PSCommand_Remove-PSFTempItem PSFunction_Remove-PSFTeppCompletion PSCommand_Remove-PSFTeppCompletion PSFunction_Reset-PSFConfig PSCommand_Reset-PSFConfig PSFunction_Reset-PSFRsAgentInactivity PSCommand_Reset-PSFRsAgentInactivity PSFunction_Resolve-PSFDefaultParameterValue PSCommand_Resolve-PSFDefaultParameterValue PSFunction_Resolve-PSFItem PSCommand_Resolve-PSFItem PSFunction_Resolve-PSFPath PSCommand_Resolve-PSFPath PSFunction_Select-PSFConfig PSCommand_Select-PSFConfig PSFunction_Select-PSFPropertyValue PSCommand_Select-PSFPropertyValue PSFunction_Set-PSFDynamicContentObject PSCommand_Set-PSFDynamicContentObject PSFunction_Set-PSFFeature PSCommand_Set-PSFFeature PSFunction_Set-PSFFileContent PSCommand_Set-PSFFileContent PSFunction_Set-PSFLoggingProvider PSCommand_Set-PSFLoggingProvider PSFunction_Set-PSFPath PSCommand_Set-PSFPath PSFunction_Set-PSFResultCache PSCommand_Set-PSFResultCache PSFunction_Set-PSFScriptblock PSCommand_Set-PSFScriptblock PSFunction_Set-PSFTaskEngineCache PSCommand_Set-PSFTaskEngineCache PSFunction_Set-PSFTeppResult PSCommand_Set-PSFTeppResult PSFunction_Set-PSFTypeAlias PSCommand_Set-PSFTypeAlias PSFunction_Start-PSFRunspace PSCommand_Start-PSFRunspace PSFunction_Start-PSFRunspaceWorkflow PSCommand_Start-PSFRunspaceWorkflow PSFunction_Start-PSFRunspaceWorker PSCommand_Start-PSFRunspaceWorker PSFunction_Stop-PSFFunction PSCommand_Stop-PSFFunction PSFunction_Stop-PSFRunspace PSCommand_Stop-PSFRunspace PSFunction_Stop-PSFRunspaceWorkflow PSCommand_Stop-PSFRunspaceWorkflow PSFunction_Stop-PSFRunspaceWorker PSCommand_Stop-PSFRunspaceWorker PSFunction_Test-PSFFeature PSCommand_Test-PSFFeature PSFunction_Test-PSFFilter PSCommand_Test-PSFFilter PSFunction_Test-PSFFunctionInterrupt PSCommand_Test-PSFFunctionInterrupt PSFunction_Test-PSFLanguageMode PSCommand_Test-PSFLanguageMode PSFunction_Test-PSFParameterBinding PSCommand_Test-PSFParameterBinding PSFunction_Test-PSFPowerShell PSCommand_Test-PSFPowerShell PSFunction_Test-PSFTaskEngineCache PSCommand_Test-PSFTaskEngineCache PSFunction_Test-PSFTaskEngineTask PSCommand_Test-PSFTaskEngineTask PSFunction_Unregister-PSFCallback PSCommand_Unregister-PSFCallback PSFunction_Unregister-PSFConfig PSCommand_Unregister-PSFConfig PSFunction_Unregister-PSFMessageColorTransform PSCommand_Unregister-PSFMessageColorTransform PSFunction_Wait-PSFMessage PSCommand_Wait-PSFMessage PSFunction_Wait-PSFRunspaceWorkflow PSCommand_Wait-PSFRunspaceWorkflow PSFunction_Write-PSFHostColor PSCommand_Write-PSFHostColor PSFunction_Write-PSFMessageProxy PSCommand_Write-PSFMessageProxy PSFunction_Write-PSFRunspaceQueue PSCommand_Write-PSFRunspaceQueue PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2026-07-13T01:20:01Z</S>
+          <S N="updated">2026-07-14T13:00:20Z</S>
           <S N="NormalizedVersion">1.14.457</S>
           <S N="Authors">Friedrich Weinmann</S>
           <S N="IsPrerelease">false</S>

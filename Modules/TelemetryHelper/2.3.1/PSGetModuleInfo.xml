@@ -40,7 +40,7 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">Workflow</S>
+            <S N="Key">Cmdlet</S>
             <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
               <LST />
@@ -64,10 +64,6 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
             <S N="Key">Command</S>
             <Obj N="Value" RefId="5">
               <TNRef RefId="1" />
@@ -89,7 +85,11 @@
             <Ref N="Value" RefId="3" />
           </En>
           <En>
-            <S N="Key">Cmdlet</S>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
             <Ref N="Value" RefId="3" />
           </En>
         </DCT>
@@ -135,15 +135,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">2995</S>
+          <S N="versionDownloadCount">3025</S>
           <S N="downloadCount">26377</S>
           <S N="packageSize">376503</S>
           <S N="published">15-8-2025 15:56:18 +02:00</S>
           <S N="created">15-8-2025 15:56:18 +02:00</S>
-          <S N="lastUpdated">12-7-2026 20:40:01 +02:00</S>
+          <S N="lastUpdated">14-7-2026 13:00:20 +02:00</S>
           <S N="tags">Telemetry ApplicationInsights PSModule PSEdition_Core PSEdition_Desktop PSFunction_Add-THAppInsightsConnectionString PSCommand_Add-THAppInsightsConnectionString PSFunction_Initialize-THTelemetry PSCommand_Initialize-THTelemetry PSFunction_Get-THTelemetryConfiguration PSCommand_Get-THTelemetryConfiguration PSFunction_Send-THEvent PSCommand_Send-THEvent PSFunction_Send-THTrace PSCommand_Send-THTrace PSFunction_Send-THMetric PSCommand_Send-THMetric PSFunction_Send-THException PSCommand_Send-THException PSFunction_Send-THAvailability PSCommand_Send-THAvailability PSFunction_Set-THTelemetryConfiguration PSCommand_Set-THTelemetryConfiguration PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2026-07-12T20:40:01Z</S>
+          <S N="updated">2026-07-14T13:00:20Z</S>
           <S N="NormalizedVersion">2.3.1</S>
           <S N="Authors">Jan-Hendrik Peters</S>
           <S N="IsPrerelease">false</S>

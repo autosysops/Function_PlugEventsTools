@@ -204,6 +204,7 @@ Disconnect-PlugEvents
 # base64 so the email contains no external image references
 # ---------------------------------------------------------------------------
 $mapHtml    = '<p><em>Geen kaart beschikbaar.</em></p>'
+$mapBase64  = $null
 $cacheFile  = "/MapCache/$umbrella-w$weeks.png"
 $cacheStamp = "/MapCache/$umbrella-w$weeks.ts"
 
@@ -250,8 +251,8 @@ if ($markerList.Count -gt 0) {
     }
 
     if ($imgBytes) {
-        $b64     = [Convert]::ToBase64String($imgBytes)
-        $mapHtml = "<img src=`"data:image/png;base64,$b64`" alt=`"Kaart met evenementen`" style=`"max-width:100%;height:auto;display:block;`" />"
+        $mapBase64 = [Convert]::ToBase64String($imgBytes)
+        $mapHtml   = '<img src="cid:mapimage" alt="Kaart met evenementen" style="max-width:100%;height:auto;display:block;" />'
     }
 }
 
@@ -307,8 +308,15 @@ $($rowBuffer.ToString())    </tbody>
 </html>
 "@
 
+# Return JSON so the Logic App can attach the map as a CID inline image.
+# The HTML body references the image as cid:mapimage.
+$responseObj = @{
+    html     = $htmlBody
+    mapImage = if ($mapBase64) { $mapBase64 } else { $null }
+}
+
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
     StatusCode  = [HttpStatusCode]::OK
-    ContentType = 'text/html; charset=utf-8'
-    Body        = $htmlBody
+    ContentType = 'application/json; charset=utf-8'
+    Body        = ($responseObj | ConvertTo-Json -Depth 2 -Compress)
 })

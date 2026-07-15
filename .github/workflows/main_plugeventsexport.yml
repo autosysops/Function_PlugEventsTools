@@ -22,7 +22,18 @@ jobs:
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v4
-      
+
+      - name: 'Download PowerShell Modules'
+        shell: pwsh
+        run: |
+          $manifest = Get-Content './modules.json' | ConvertFrom-Json
+          foreach ($mod in $manifest) {
+            Write-Host "Downloading $($mod.Name) v$($mod.RequiredVersion)..."
+            Save-Module -Name $mod.Name -RequiredVersion $mod.RequiredVersion `
+                        -Path './Modules' -Force -AcceptLicense
+          }
+          Write-Host "All modules downloaded."
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -37,4 +48,3 @@ jobs:
           app-name: 'PlugEventsExport'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          

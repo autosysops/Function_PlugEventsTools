@@ -5,6 +5,9 @@
 appsettings.json
 local.settings.json
 
+# PowerShell modules — downloaded during CI/CD (see modules.json), not stored in git
+Modules/*/
+
 # Azurite artifacts
 __blobstorage__
 __queuestorage__

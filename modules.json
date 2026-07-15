@@ -1,0 +1,6 @@
+[
+  { "Name": "PlugEvents",      "RequiredVersion": "0.0.7" },
+  { "Name": "Geocoding",       "RequiredVersion": "1.0.0" },
+  { "Name": "PSFramework",     "RequiredVersion": "1.14.457" },
+  { "Name": "TelemetryHelper", "RequiredVersion": "2.3.1" }
+]

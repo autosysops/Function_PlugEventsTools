@@ -32,17 +32,18 @@ if (-not $body) {
 # ---------------------------------------------------------------------------
 # Parameters
 # ---------------------------------------------------------------------------
-$rowKey    = $body.RowKey
-$removeKey = $body.RemoveKey
-$umbrella  = $body.Umbrella
-$weeksRaw  = $body.Weeks
-$latRaw    = $body.Lat
-$lonRaw    = $body.Lon
+$rowKey     = $body.RowKey
+$removeKey  = $body.RemoveKey
+$umbrella   = $body.Umbrella
+$weeksRaw   = $body.Weeks
+$periodRaw  = $body.Period
+$latRaw     = $body.Lat
+$lonRaw     = $body.Lon
 
-if (-not $rowKey -or -not $removeKey -or -not $umbrella -or -not $weeksRaw) {
+if (-not $rowKey -or -not $removeKey -or -not $umbrella -or -not $weeksRaw -or -not $periodRaw) {
     Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
         StatusCode = [HttpStatusCode]::BadRequest
-        Body       = 'Missing required parameter(s): RowKey, RemoveKey, Umbrella, Weeks.'
+        Body       = 'Missing required parameter(s): RowKey, RemoveKey, Umbrella, Weeks, Period.'
     })
     return
 }
@@ -56,19 +57,30 @@ catch {
     return
 }
 
+try { $period = [int]$periodRaw }
+catch {
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+        StatusCode = [HttpStatusCode]::BadRequest
+        Body       = "'Period' must be a valid integer."
+    })
+    return
+}
+
 $lat = $null; $lon = $null
 if ($latRaw) { try { $lat = [double]$latRaw } catch { } }
 if ($lonRaw) { try { $lon = [double]$lonRaw } catch { } }
 $hasLocation = ($null -ne $lat -and $null -ne $lon)
 
 # ---------------------------------------------------------------------------
-# Date range — end = today + (weeks * 7) + 1 day for overlap
-# Example: today = 14 jul, weeks = 1  →  endDate = 22 jul
+# Date range — end = today + (period * 7) + 1 day for overlap
+# Example: today = 14 jul, period = 1  →  endDate = 22 jul
+# Weeks  = how often this email is sent (frequency)
+# Period = how many weeks ahead of events to include
 # ---------------------------------------------------------------------------
 $startDate = (Get-Date).Date
-$endDate   = $startDate.AddDays($weeks * 7 + 1)
+$endDate   = $startDate.AddDays($period * 7 + 1)
 
-Write-Host "Agenda | umbrella=$umbrella weeks=$weeks start=$($startDate.ToString('yyyy-MM-dd')) end=$($endDate.ToString('yyyy-MM-dd')) hasLocation=$hasLocation"
+Write-Host "Agenda | umbrella=$umbrella weeks=$weeks period=$period start=$($startDate.ToString('yyyy-MM-dd')) end=$($endDate.ToString('yyyy-MM-dd')) hasLocation=$hasLocation"
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -284,7 +296,7 @@ $htmlBody = @"
 </head>
 <body>
   <p>Beste,</p>
-  <p>Hier vind je de evenementen voor <strong>$umbrella</strong> voor de komende <strong>$weeks</strong> weken:</p>
+  <p>Hier vind je de evenementen voor <strong>$umbrella</strong> voor de komende <strong>$period</strong> weken:</p>
 
   <table>
     <thead>
@@ -301,6 +313,10 @@ $($rowBuffer.ToString())    </tbody>
 
   <p>Hier kan je een kaart vinden met daarop alle evenementen:</p>
   $mapHtml
+
+  <p>Je ontvangt deze email iedere <strong>$weeks</strong> week(en) met de evenementen voor de komende <strong>$period</strong> weken.
+  Wil je je voorkeuren wijzigen? Meld je dan af en meld je opnieuw aan via
+  <a href="https://plugeventstools.balfolkworkshop.com/tools/Notifications.html">deze pagina</a>.</p>
 
   <p>Als je wilt afmelden voor deze email klik dan op de volgende link:<br />
   <a href="$unsubUrl">Afmelden</a></p>
